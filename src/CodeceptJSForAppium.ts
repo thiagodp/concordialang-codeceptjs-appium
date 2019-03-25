@@ -1,8 +1,8 @@
 import { join } from 'path';
-import { TestScriptExecutionOptions } from "../../modules/testscript/TestScriptExecution";
-import { CodeceptJS } from "concordialang-codeceptjs-webdriverio/dist/CodeceptJS"
-import { TestScriptExecutor } from "concordialang-codeceptjs-webdriverio/dist/TestScriptExecutor";
-import { ConfigMaker } from "concordialang-codeceptjs-webdriverio/dist/ConfigMaker";
+import { TestScriptExecutionOptions } from 'concordialang-types/dist/testscript/TestScriptExecution';
+import { CodeceptJS } from 'concordialang-codeceptjs-webdriverio/dist/CodeceptJS';
+import { TestScriptExecutor } from 'concordialang-codeceptjs-webdriverio/dist/TestScriptExecutor';
+import { ConfigMaker } from 'concordialang-codeceptjs-webdriverio/dist/ConfigMaker';
 
 /**
  * Plug-in for CodeceptJS with Appium.
