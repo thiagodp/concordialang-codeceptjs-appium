@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
-const CodeceptJS_1 = require("concordialang-codeceptjs-webdriverio/dist/CodeceptJS");
-const TestScriptExecutor_1 = require("concordialang-codeceptjs-webdriverio/dist/TestScriptExecutor");
-const ConfigMaker_1 = require("concordialang-codeceptjs-webdriverio/dist/ConfigMaker");
+const concordialang_codeceptjs_webdriverio_1 = require("concordialang-codeceptjs-webdriverio");
 /**
  * Plug-in for CodeceptJS with Appium.
  */
-class CodeceptJSForAppium extends CodeceptJS_1.CodeceptJS {
+class CodeceptJSForAppium extends concordialang_codeceptjs_webdriverio_1.CodeceptJS {
     /**
      * Constructor
      *
@@ -19,12 +17,12 @@ class CodeceptJSForAppium extends CodeceptJS_1.CodeceptJS {
     }
     createTestScriptExecutor(options) {
         const scriptFileFilter = path_1.join(options.sourceCodeDir, '**/*.js');
-        const cfgMaker = new ConfigMaker_1.ConfigMaker();
+        const cfgMaker = new concordialang_codeceptjs_webdriverio_1.ConfigMaker();
         let config = cfgMaker.makeBasicConfig(scriptFileFilter, options.executionResultDir);
         cfgMaker.setAppiumHelper(config);
         cfgMaker.setDbHelper(config);
         cfgMaker.setCmdHelper(config);
-        return new TestScriptExecutor_1.TestScriptExecutor(config);
+        return new concordialang_codeceptjs_webdriverio_1.TestScriptExecutor(config);
     }
 }
 exports.CodeceptJSForAppium = CodeceptJSForAppium;
