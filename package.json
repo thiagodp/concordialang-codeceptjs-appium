@@ -9,6 +9,13 @@
     "name": "Thiago Delgado Pinto",
     "email": "thiago-dp@bol.com.br"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagodp/concordialang-codeceptjs-appium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thiagodp/concordialang-codeceptjs-appium/issues"
+  },
   "keywords": [
     "concordialang",
     "concordia-lang",
@@ -21,9 +28,13 @@
     "plugin",
     "plug-in"
   ],
-  "main": "dist/index.js",
+  "main": "dist",
+  "types": "dist",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf dist && tsc",
     "test": "jest",
     "postversion": "git push && git push --tags"
   },
@@ -38,16 +49,10 @@
       "js"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thiagodp/concordialang-codeceptjs-appium.git"
-  },
-  "bugs": {
-    "url": "https://github.com/thiagodp/concordialang-codeceptjs-appium/issues"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.11",
     "jest": "^24.5.0",
+    "rimraf": "^2.6.3",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.4000"
   },
