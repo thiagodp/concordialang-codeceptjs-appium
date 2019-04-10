@@ -49,6 +49,18 @@
       "js"
     ]
   },
+  "concordiaPlugin": {
+    "isFake": false,
+    "targets": [
+      "codeceptjs",
+      "appium"
+    ],
+    "file": "dist/CodeceptJSForAppium.js",
+    "class": "CodeceptJSForAppium",
+    "install": "npm install -g codeceptjs@1.2.1 appium",
+    "uninstall": "npm uninstall -g codeceptjs appium",
+    "serve": "appium"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.11",
     "jest": "^24.5.0",
