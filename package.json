@@ -57,7 +57,7 @@
     ],
     "file": "dist/CodeceptJSForAppium.js",
     "class": "CodeceptJSForAppium",
-    "install": "npm install -g codeceptjs@1.2.1 mocha@v5.2.0 mocha-multi@v1.1.0 appium",
+    "install": "npm install -g codeceptjs@1.2.1 mocha@v5.2.0 mocha-multi@v1.0.1 appium",
     "uninstall": "npm uninstall -g codeceptjs appium",
     "serve": "appium"
   },
