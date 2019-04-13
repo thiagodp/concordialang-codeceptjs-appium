@@ -57,8 +57,8 @@
     ],
     "file": "dist/CodeceptJSForAppium.js",
     "class": "CodeceptJSForAppium",
-    "install": "npm install --color=always -g codeceptjs@1.2.1 appium && npm install --color=always --save-dev mocha@v5.2.0 mocha-multi@v1.0.1",
-    "uninstall": "npm uninstall --color=always --save-dev mocha@v5.2.0 mocha-multi@v1.0.1 && npm uninstall --color=always -g codeceptjs appium",
+    "install": "npm install --color=always --save-dev mocha@v5.2.0 mocha-multi@v1.0.1 codeceptjs-cmdhelper codeceptjs-dbhelper database-js database-js-json && npm install --color=always -g codeceptjs@1.2.1 appium",
+    "uninstall": "npm uninstall --color=always --save-dev mocha mocha-multi codeceptjs-cmdhelper codeceptjs-dbhelper database-js database-js-json && npm uninstall --color=always -g codeceptjs appium",
     "serve": "appium"
   },
   "devDependencies": {
