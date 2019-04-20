@@ -69,7 +69,7 @@
     "typescript": "^3.3.4000"
   },
   "dependencies": {
-    "concordialang-codeceptjs-webdriverio": "^0.3.0",
+    "concordialang-codeceptjs-webdriverio": "^0.4.0",
     "concordialang-types": "^0.1.4"
   }
 }
