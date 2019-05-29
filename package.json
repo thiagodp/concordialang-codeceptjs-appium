@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "postversion": "git push && git push --tags"
   },
   "jest": {
@@ -69,7 +69,7 @@
     "typescript": "^3.3.4000"
   },
   "dependencies": {
-    "concordialang-codeceptjs-webdriverio": "^0.4.0",
+    "concordialang-codeceptjs-webdriverio": "^0.4.2",
     "concordialang-types": "^0.1.4"
   }
 }
