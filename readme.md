@@ -10,19 +10,13 @@ This plug-in is based on [concordialang-codeceptjs-webdriverio](https://github.c
 ## 💿 Installation
 
 Before installing:
-- Make sure you have Concordia `1.0.0` or above.
+- Make sure you have [Concordia](https://github.com/thiagodp/concordialang) `1.0.0` or above.
 - Go to your applications' root folder.
 
-Installation via [Concordia Compiler](https://github.com/thiagodp/concordialang):
+Installation:
 
 ```bash
 concordia --plugin-install codeceptjs-webdriverio
-```
-
-Installation via NPM:
-
-```bash
-npm install --save-dev concordialang-codeceptjs-webdriverio
 ```
 
 *Note*: If you want to test a **web-based** mobile or desktop application, you will have to install [Java 8 or above](https://www.java.com/download/), since Appium will use [WebDriverIO](http://webdriver.io), which requires Java.
