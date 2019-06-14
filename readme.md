@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/concordialang-codeceptjs-appium.svg)](https://badge.fury.io/js/concordialang-codeceptjs-appium)
+[![GitHub last commit](https://img.shields.io/github/last-commit/thiagodp/concordialang-codeceptjs-appium.svg)](https://github.com/thiagodp/concordialang-codeceptjs-appium/releases)
+
 # concordialang-codeceptjs-appium
 
 > 🔌 Concordia Compiler Plug-in for CodeceptJS with Appium
@@ -7,19 +10,26 @@ Generates and executes test scripts for **mobile or applications**. Uses [Codece
 This plug-in is based on [concordialang-codeceptjs-webdriverio](https://github.com/thiagodp/concordialang-codeceptjs-webdriverio). However, it does not require WebDriverIO.
 
 
-## 💿 Installation
+## Installation
 
 Before installing:
 - Make sure you have [Concordia](https://github.com/thiagodp/concordialang) `1.0.0` or above.
 - Go to your applications' root folder.
 
-Installation:
+*Note*: If you want to test a **web-based** mobile or desktop application, you will have to install [Java 8 or above](https://www.java.com/download/), since Appium will use [WebDriverIO](http://webdriver.io), which requires Java.
+
+
+Installation via [Concordia](https://github.com/thiagodp/concordialang):
 
 ```bash
-concordia --plugin-install codeceptjs-webdriverio
+concordia --plugin-install codeceptjs-appium
 ```
 
-*Note*: If you want to test a **web-based** mobile or desktop application, you will have to install [Java 8 or above](https://www.java.com/download/), since Appium will use [WebDriverIO](http://webdriver.io), which requires Java.
+Installation via NPM:
+
+```bash
+npm install --save-dev concordialang-codeceptjs-appium
+```
 
 ### Optional installation
 
@@ -40,7 +50,7 @@ The following **database drivers** allow you to connect to a certain database ty
 | PostgreSQL    | `npm install --save-dev database-js-postgres` |                |
 | SQLite        | `npm install --save-dev database-js-sqlite`   |                |
 
-## You may also like to install
+### You may also like to install
 
 1. [Appium Doctor](https://github.com/appium/appium-doctor), if you are testing a **mobile** application
 > Attempts to diagnose and fix common Node, iOS and Android configuration issues before starting Appium.
@@ -48,23 +58,39 @@ The following **database drivers** allow you to connect to a certain database ty
 npm install -g appium-doctor
 ```
 
-2. [Appium Desktop](https://github.com/appium/appium-desktop/), if you are testing a **desktop** application
+2. [Appium Desktop](https://github.com/appium/appium-desktop/), if you are testing a **desktop** application. It has its own [installer](https://github.com/appium/appium-desktop/releases/)
 > Appium Server and Inspector in Desktop GUIs for Mac, Windows, and Linux
 
-Appium Desktop has its own [installer](https://github.com/appium/appium-desktop/releases/).
+## Environment Setup
 
+> Unfortunately, the setup process for testing mobile or desktop applications with Appium requires some manual effort.
 
-## 🚀 Execution
+[Appium](http://appium.io/) provides automation for a particular platform through a *driver*. Every driver comes with its own setup requirements - usually the same ones for app development. For example, to automate the tests of an Android app, you will need to install [Android SDK](https://developer.android.com/studio). Likewise, an iOS app will need [iOS SDK](https://developer.apple.com/ios/).
 
-A plug-in is only executed with the [Concordia Compiler](https://github.com/thiagodp/concordialang). Please see its documentation.
+**Appium Drivers:**
+- *Android apps* with [UiAutomator2 Driver](http://appium.io/docs/en/drivers/android-uiautomator2/index.html)
+- *Android apps* with [Expresso Driver](http://appium.io/docs/en/drivers/android-espresso/index.html) *(beta)*
+- *iOS apps* or *tvOS apps* with [XCUITest Driver](http://appium.io/docs/en/drivers/ios-xcuitest/index.html)
+- *Windows Desktop apps* with [Windows Driver](http://appium.io/docs/en/drivers/windows/index.html)
+- *Mac Desktop apps* with [Mac Driver](http://appium.io/docs/en/drivers/mac/index.html)
+
+Therefore, please install the driver and the needed requirements in order to test your application.
+
+## Execution
+
+Execute it with the [Concordia Compiler](https://github.com/thiagodp/concordialang). Example:
+
+```bash
+concordia --plugin codeceptjs-appium
+```
 
 ### Generated configuration file
 
-Concordia Compiler uses plug-ins to generate a basic configuration file for the target testing framework. Plugins for CodeceptJS usually generate `codeceptjs.json`.
+The plug-in generates a basic configuration file for you.
 
-#### Version 0.x
+#### Versions 0.x and 1.x
 
-Version `0.x` generates `codecept-appium.json` with the following content:
+Versions `0.x` and `1.x` generate the file `codecept.json` with the following content:
 
 ```json
 {
@@ -72,9 +98,9 @@ Version `0.x` generates `codecept-appium.json` with the following content:
 	"output": "output",
 	"helpers": {
     		"Appium": {
-      			"plataform": "Android",
+      			"platform": "Android",
       			"app": "http://localhost",
-			"device": "emulator"
+				"device": "emulator"
     		},
 		"DbHelper": {
 			"require": "./node_modules/codeceptjs-dbhelper"
@@ -100,9 +126,18 @@ Version `0.x` generates `codecept-appium.json` with the following content:
 }
 ```
 
-## 📖 Documentation
+The above file is compatible with CodeceptJS `1.2.1`, and probably any version in `1.x`.
 
-### Installed by version 0.x
+
+## Documentation
+
+### Packages installed by version 1.x
+
+- No packages are installed *globally*.
+- No changes to `package.json`.
+- All the same dependencies as version `0.x`.
+
+### Packages installed by version 0.x
 
 Installed globally:
 
@@ -125,13 +160,18 @@ Installed in `package.json`'s `devDependencies`:
 
 ### Integration with CodeceptJS
 
-Please see the plugin [concordialang-codeceptjs-webdriverio](https://github.com/thiagodp/concordialang-codeceptjs-webdriverio#integration-with-codeceptjs).
+Documentation available in [concordialang-codeceptjs-core](https://github.com/thiagodp/concordialang-codeceptjs-core#documentation).
 
 
-## 👁 See Also
+## See Also
+
+- [Mobile Testing with CodeceptJS and Appium](https://codecept.io/mobile)
+
+- [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/index.html)
 
 - [concordialang-codeceptjs-webdriverio](https://github.com/thiagodp/concordialang-codeceptjs-webdriverio): plugin for CodeceptJS with WebDriverIO.
 - [Concordia](https://github.com/thiagodp/concordialang)
+
 
 ## License
 
