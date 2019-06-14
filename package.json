@@ -4,7 +4,7 @@
   "description": "Concordia Language plug-in to generate test scripts for CodeceptJS with Appium",
   "license": "AGPL-3.0",
   "readme": "readme.md",
-  "homepage": "https://github.com/thiagodp/concordialang-codeceptjs-appium#readme",
+  "homepage": "https://github.com/thiagodp/concordialang-codeceptjs-appium",
   "author": {
     "name": "Thiago Delgado Pinto",
     "email": "thiago-dp@bol.com.br"
@@ -34,9 +34,10 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "(rimraf dist || echo \"rimraf not installed\") && tsc",
     "test": "jest --passWithNoTests",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "postinstall": "((npm list -g npx) || (npm i --color=always -g npx)) && node dist/postinstall.js"
   },
   "jest": {
     "transform": {
@@ -55,21 +56,30 @@
       "codeceptjs",
       "appium"
     ],
-    "file": "dist/CodeceptJSForAppium.js",
-    "class": "CodeceptJSForAppium",
-    "install": "npm install --color=always --save-dev codeceptjs@1.2.1 mocha@v5.2.0 mocha-multi@v1.0.1 codeceptjs-cmdhelper codeceptjs-dbhelper database-js database-js-json && npm install --color=always -g codeceptjs@1.2.1 appium",
-    "uninstall": "npm uninstall --color=always --save-dev codeceptjs mocha mocha-multi codeceptjs-cmdhelper codeceptjs-dbhelper database-js database-js-json && npm uninstall --color=always -g codeceptjs appium",
-    "serve": "appium"
+    "file": "dist/CodeceptJSAppium.js",
+    "class": "CodeceptJSAppium",
+    "serve": "npx appium"
+  },
+  "dependencies": {
+    "appium": "^1.13.0",
+    "codeceptjs": "=1.2.1",
+    "codeceptjs-cmdhelper": "^2.2.0",
+    "codeceptjs-dbhelper": "^1.0.0",
+    "concordialang-codeceptjs-core": "^0.1.0",
+    "concordialang-plugin": "^0.4.0",
+    "concordialang-types": "^0.1.4",
+    "database-js": "^3.0.9",
+    "database-js-json": "^1.2.1",
+    "mocha": "=5.2.0",
+    "mocha-multi": "=1.0.1"
   },
   "devDependencies": {
+    "@types/core-js": "^0.9.46",
     "@types/jest": "^24.0.11",
+    "@types/node": "^8.10.17",
     "jest": "^24.5.0",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.4000"
-  },
-  "dependencies": {
-    "concordialang-codeceptjs-webdriverio": "^0.4.2",
-    "concordialang-types": "^0.1.4"
   }
 }

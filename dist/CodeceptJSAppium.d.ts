@@ -1,9 +1,9 @@
 import { TestScriptExecutionOptions } from 'concordialang-types';
-import { CodeceptJS, TestScriptExecutor } from 'concordialang-codeceptjs-webdriverio';
+import { CodeceptJS, TestScriptExecutor } from 'concordialang-codeceptjs-core';
 /**
  * Plug-in for CodeceptJS with Appium.
  */
-export declare class CodeceptJSForAppium extends CodeceptJS {
+export declare class CodeceptJSAppium extends CodeceptJS {
     /**
      * Constructor
      *

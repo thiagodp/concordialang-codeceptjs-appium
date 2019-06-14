@@ -1,1 +1,1 @@
-export * from './CodeceptJSForAppium';
+export * from './CodeceptJSAppium';

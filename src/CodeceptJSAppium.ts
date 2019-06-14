@@ -1,11 +1,11 @@
 import { join } from 'path';
 import { TestScriptExecutionOptions } from 'concordialang-types';
-import { CodeceptJS, TestScriptExecutor, ConfigMaker } from 'concordialang-codeceptjs-webdriverio';
+import { CodeceptJS, TestScriptExecutor, ConfigMaker } from 'concordialang-codeceptjs-core';
 
 /**
  * Plug-in for CodeceptJS with Appium.
  */
-export class CodeceptJSForAppium extends CodeceptJS {
+export class CodeceptJSAppium extends CodeceptJS {
 
     /**
      * Constructor
