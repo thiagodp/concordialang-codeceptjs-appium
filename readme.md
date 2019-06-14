@@ -5,10 +5,7 @@
 
 > 🔌 Concordia Compiler Plug-in for CodeceptJS with Appium
 
-Generates and executes test scripts for **mobile or applications**. Uses [CodeceptJS](https://codecept.io) with [Appium](http://appium.io).
-
-This plug-in is based on [concordialang-codeceptjs-webdriverio](https://github.com/thiagodp/concordialang-codeceptjs-webdriverio). However, it does not require WebDriverIO.
-
+Generates and executes test scripts for **mobile** or **desktop** applications. Uses [CodeceptJS](https://codecept.io) with [Appium](http://appium.io).
 
 ## Installation
 
