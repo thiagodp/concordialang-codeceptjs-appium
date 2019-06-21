@@ -1,4 +1,4 @@
-import { TestScriptExecutionOptions } from 'concordialang-types';
+import { TestScriptExecutionOptions } from 'concordialang-plugin';
 import { CodeceptJS, TestScriptExecutor } from 'concordialang-codeceptjs-core';
 /**
  * Plug-in for CodeceptJS with Appium.

@@ -13,7 +13,7 @@ class CodeceptJSAppium extends concordialang_codeceptjs_core_1.CodeceptJS {
      * @param encoding Encoding to use. Default is 'utf8'.
      */
     constructor(fsToUse, encoding = 'utf8') {
-        super(path_1.join(__dirname, '../', 'codeceptjs-appium.json'), fsToUse, encoding);
+        super(path_1.join(__dirname, '../', 'codeceptjs.json'), fsToUse, encoding);
     }
     createTestScriptExecutor(options) {
         const scriptFileFilter = path_1.join(options.sourceCodeDir, '**/*.js');

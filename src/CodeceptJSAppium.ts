@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { TestScriptExecutionOptions } from 'concordialang-types';
+import { TestScriptExecutionOptions } from 'concordialang-plugin'
 import { CodeceptJS, TestScriptExecutor, ConfigMaker } from 'concordialang-codeceptjs-core';
 
 /**
@@ -18,7 +18,7 @@ export class CodeceptJSAppium extends CodeceptJS {
         encoding: string = 'utf8'
     ) {
         super(
-            join( __dirname, '../', 'codeceptjs-appium.json' ),
+            join( __dirname, '../', 'codeceptjs.json' ),
             fsToUse,
             encoding
         );
