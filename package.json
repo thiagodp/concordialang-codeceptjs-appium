@@ -65,8 +65,8 @@
     "codeceptjs": "=1.2.1",
     "codeceptjs-cmdhelper": "^2.2.0",
     "codeceptjs-dbhelper": "^1.0.0",
-    "concordialang-codeceptjs-core": "^0.2.0",
-    "concordialang-plugin": "^0.6.0",
+    "concordialang-codeceptjs-core": "^0.3.0",
+    "concordialang-plugin": "^0.6.1",
     "database-js": "^3.0.9",
     "database-js-json": "^1.2.1",
     "mocha": "=5.2.0",
@@ -77,6 +77,7 @@
     "@types/jest": "^24.0.11",
     "@types/node": "^8.10.17",
     "jest": "^24.5.0",
+    "lodash": "^4.17.15",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.4000"
