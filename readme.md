@@ -7,6 +7,8 @@
 
 Generates and executes test scripts for **mobile** or **desktop** applications. Uses [CodeceptJS](https://codecept.io) with [Appium](http://appium.io).
 
+## [What's New](https://github.com/thiagodp/concordialang-codeceptjs-appium/releases)
+
 ## Installation
 
 Before installing:
