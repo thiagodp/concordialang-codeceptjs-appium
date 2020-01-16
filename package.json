@@ -34,7 +34,7 @@
     "dist/*"
   ],
   "scripts": {
-    "switch:local": "npm i ../concordialang-codeceptjs-core",
+    "switch:local": "npm uninstall concordialang-codeceptjs-core && npm i ../concordialang-codeceptjs-core",
     "switch:web": "npm uninstall concordialang-codeceptjs-core && npm i concordialang-codeceptjs-core",
     "build": "(rimraf dist || echo \"rimraf not installed\") && tsc",
     "test": "jest --passWithNoTests",
