@@ -36,11 +36,11 @@
   "scripts": {
     "switch:local": "npm uninstall concordialang-codeceptjs-core && npm i ../concordialang-codeceptjs-core",
     "switch:web": "npm uninstall concordialang-codeceptjs-core && npm i concordialang-codeceptjs-core",
-    "build": "(rimraf dist || echo \"rimraf not installed\") && tsc",
+    "build": "rimraf dist && tsc",
     "test": "jest --passWithNoTests",
     "preversion": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
-    "postinstall": "((npm list -g npx) || (npm i --color=always -g npx)) && node dist/postinstall.js"
+    "postinstall": "node dist/in-ci.js || (((npm list -g npx) || (npm i --color=always -g npx))) && node dist/postinstall.js"
   },
   "jest": {
     "transform": {
