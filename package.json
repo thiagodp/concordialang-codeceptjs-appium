@@ -38,6 +38,7 @@
     "switch:web": "npm uninstall concordialang-codeceptjs-core && npm i concordialang-codeceptjs-core",
     "build": "(rimraf dist || echo \"rimraf not installed\") && tsc",
     "test": "jest --passWithNoTests",
+    "preversion": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
     "postinstall": "((npm list -g npx) || (npm i --color=always -g npx)) && node dist/postinstall.js"
   },
@@ -63,11 +64,11 @@
     "serve": "npx appium"
   },
   "dependencies": {
-    "appium": "^1.13.0",
+    "appium": "^1.17.0",
     "codeceptjs": "=1.2.1",
     "codeceptjs-cmdhelper": "^2.2.0",
     "codeceptjs-dbhelper": "^1.0.0",
-    "concordialang-codeceptjs-core": "^0.4.2",
+    "concordialang-codeceptjs-core": "^0.5.0",
     "concordialang-plugin": "^0.6.1",
     "database-js": "^3.0.9",
     "database-js-json": "^1.2.1",
@@ -76,12 +77,11 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.46",
-    "@types/jest": "^24.0.11",
-    "@types/node": "^8.10.17",
-    "jest": "^24.5.0",
-    "lodash": "^4.17.15",
-    "rimraf": "^2.6.3",
-    "ts-jest": "^24.0.0",
-    "typescript": "^3.3.4000"
+    "@types/jest": "^25.1.4",
+    "@types/node": "^8.10.59",
+    "jest": "^25.2.3",
+    "rimraf": "^2.7.1",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
   }
 }
