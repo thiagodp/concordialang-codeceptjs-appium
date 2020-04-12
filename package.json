@@ -34,10 +34,11 @@
     "dist/*"
   ],
   "scripts": {
-    "switch:local": "npm uninstall concordialang-codeceptjs-core && npm i ../concordialang-codeceptjs-core",
-    "switch:web": "npm uninstall concordialang-codeceptjs-core && npm i concordialang-codeceptjs-core",
+    "switch:un": "npm uninstall concordialang-codeceptjs-core concordialang-plugin",
+    "switch:local": "npm run switch:un && npm i ../concordialang-plugin && i ../concordialang-codeceptjs-core",
+    "switch:web": "npm run switch:un && npm i concordialang-plugin concordialang-codeceptjs-core",
     "build": "rimraf dist && tsc",
-    "test": "jest --passWithNoTests",
+    "test": "echo \"No tests to run. They are in the `core` package.\"",
     "preversion": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
     "postinstall": "node dist/in-ci.js || (((npm list -g npx) || (npm i --color=always -g npx))) && node dist/postinstall.js"
@@ -68,20 +69,16 @@
     "codeceptjs": "=1.2.1",
     "codeceptjs-cmdhelper": "^2.2.0",
     "codeceptjs-dbhelper": "^1.0.0",
-    "concordialang-codeceptjs-core": "^0.6.0",
-    "concordialang-plugin": "^0.6.1",
+    "concordialang-codeceptjs-core": "^0.7.0",
+    "concordialang-plugin": "^0.7.0",
     "database-js": "^3.0.9",
     "database-js-json": "^1.2.1",
     "mocha": "=5.2.0",
     "mocha-multi": "=1.0.1"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.46",
-    "@types/jest": "^25.1.4",
     "@types/node": "^8.10.59",
-    "jest": "^25.2.3",
-    "rimraf": "^2.7.1",
-    "ts-jest": "^25.2.1",
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
   }
 }
