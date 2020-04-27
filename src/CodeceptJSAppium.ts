@@ -1,9 +1,11 @@
+import { CodeceptJS, ConfigMaker, TestScriptExecutor } from 'concordialang-codeceptjs-core';
+import { TestScriptExecutionOptions } from 'concordialang-plugin';
 import { join } from 'path';
-import { TestScriptExecutionOptions } from 'concordialang-plugin'
-import { CodeceptJS, TestScriptExecutor, ConfigMaker } from 'concordialang-codeceptjs-core';
 
 /**
  * Plug-in for CodeceptJS with Appium.
+ *
+ * @author Thiago Delgado Pinto
  */
 export class CodeceptJSAppium extends CodeceptJS {
 
@@ -14,24 +16,27 @@ export class CodeceptJSAppium extends CodeceptJS {
      * @param encoding Encoding to use. Default is 'utf8'.
      */
     constructor(
+        descriptorPath?: string,
         fsToUse?: any,
         encoding: string = 'utf8'
     ) {
         super(
-            join( __dirname, '../', 'codeceptjs.json' ),
+            descriptorPath,
             fsToUse,
             encoding
         );
     }
 
-    protected createTestScriptExecutor( options: TestScriptExecutionOptions ): TestScriptExecutor {
+    protected async createTestScriptExecutor(
+        options: TestScriptExecutionOptions
+        ): Promise< TestScriptExecutor > {
 
-        const scriptFileFilter = join( options.sourceCodeDir, '**/*.js' );
+        const scriptFileFilter = join( options.dirScript, '**/*.js' );
 
         const cfgMaker: ConfigMaker = new ConfigMaker();
-        let config = cfgMaker.makeBasicConfig(
+        const config = cfgMaker.makeBasicConfig(
             scriptFileFilter,
-            options.executionResultDir
+            options.dirResult
         );
         cfgMaker.setAppiumHelper( config );
         cfgMaker.setDbHelper( config );
