@@ -1,7 +1,9 @@
-import { TestScriptExecutionOptions } from 'concordialang-plugin';
 import { CodeceptJS, TestScriptExecutor } from 'concordialang-codeceptjs-core';
+import { TestScriptExecutionOptions } from 'concordialang-plugin';
 /**
  * Plug-in for CodeceptJS with Appium.
+ *
+ * @author Thiago Delgado Pinto
  */
 export declare class CodeceptJSAppium extends CodeceptJS {
     /**
@@ -10,6 +12,6 @@ export declare class CodeceptJSAppium extends CodeceptJS {
      * @param fsToUse Filesystem object to use. Default is nodejs fs.
      * @param encoding Encoding to use. Default is 'utf8'.
      */
-    constructor(fsToUse?: any, encoding?: string);
-    protected createTestScriptExecutor(options: TestScriptExecutionOptions): TestScriptExecutor;
+    constructor(descriptorPath?: string, fsToUse?: any, encoding?: string);
+    protected createTestScriptExecutor(options: TestScriptExecutionOptions): Promise<TestScriptExecutor>;
 }

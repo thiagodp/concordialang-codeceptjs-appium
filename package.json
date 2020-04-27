@@ -39,6 +39,7 @@
     "switch:web": "npm run switch:un && npm i concordialang-plugin concordialang-codeceptjs-core",
     "build": "rimraf dist && tsc",
     "test": "echo \"No tests to run. They are in the `core` package.\"",
+    "all": "npm run build && npm run test",
     "preversion": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
     "postinstall": "node dist/in-ci.js || (((npm list -g npx) || (npm i --color=always -g npx))) && node dist/postinstall.js"
@@ -66,7 +67,7 @@
   },
   "dependencies": {
     "appium": "^1.17.0",
-    "concordialang-codeceptjs-core": "^1.0.0",
+    "concordialang-codeceptjs-core": "^1.0.1",
     "concordialang-plugin": "^1.0.0"
   },
   "devDependencies": {
