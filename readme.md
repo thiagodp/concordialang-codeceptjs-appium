@@ -27,34 +27,15 @@ concordia --plugin-install codeceptjs-appium
 Installation via NPM:
 
 ```bash
-npm install --save-dev concordialang-codeceptjs-appium
+npm i -D concordialang-codeceptjs-appium
 ```
-
-### Optional installation
-
-You can install additional packages **when needed**, via NPM.
-
-The following **database drivers** allow you to connect to a certain database type during the *test execution*:
-
-| driver        | command to install                            | note           |
-| ------------- | --------------------------------------------- | -------------- |
-| CSV files     | `npm install --save-dev database-js-csv`      |                |
-| Excel files   | `npm install --save-dev database-js-xlsx`     |                |
-| Firebase      | `npm install --save-dev database-js-firebase` |                |
-| INI files     | `npm install --save-dev database-js-ini`      |                |
-| JSON files    | `npm install --save-dev database-js-json`     |                |
-| MySQL         | `npm install --save-dev database-js-mysql`    |                |
-| MS Access     | `npm install --save-dev database-js-adodb`    | *Windows only* |
-| MS SQL Server | `npm install --save-dev database-js-mssql`    |                |
-| PostgreSQL    | `npm install --save-dev database-js-postgres` |                |
-| SQLite        | `npm install --save-dev database-js-sqlite`   |                |
 
 ### You may also like to install
 
 1. [Appium Doctor](https://github.com/appium/appium-doctor), if you are testing a **mobile** application
 > Attempts to diagnose and fix common Node, iOS and Android configuration issues before starting Appium.
 ```bash
-npm install -g appium-doctor
+npm i -g appium-doctor
 ```
 
 2. [Appium Desktop](https://github.com/appium/appium-desktop/), if you are testing a **desktop** application. It has its own [installer](https://github.com/appium/appium-desktop/releases/)
@@ -67,13 +48,15 @@ npm install -g appium-doctor
 [Appium](http://appium.io/) provides automation for a particular platform through a *driver*. Every driver comes with its own setup requirements - usually the same ones for app development. For example, to automate the tests of an Android app, you will need to install [Android SDK](https://developer.android.com/studio). Likewise, an iOS app will need [iOS SDK](https://developer.apple.com/ios/).
 
 **Appium Drivers:**
+> Install the appropriate driver to test your application.
+
 - *Android apps* with [UiAutomator2 Driver](http://appium.io/docs/en/drivers/android-uiautomator2/index.html)
 - *Android apps* with [Expresso Driver](http://appium.io/docs/en/drivers/android-espresso/index.html) *(beta)*
 - *iOS apps* or *tvOS apps* with [XCUITest Driver](http://appium.io/docs/en/drivers/ios-xcuitest/index.html)
 - *Windows Desktop apps* with [Windows Driver](http://appium.io/docs/en/drivers/windows/index.html)
 - *Mac Desktop apps* with [Mac Driver](http://appium.io/docs/en/drivers/mac/index.html)
 
-Therefore, please install the driver and the needed requirements in order to test your application.
+After installing it, you may want to set the [Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/index.html).
 
 ## Execution
 
@@ -83,69 +66,57 @@ Execute it with the [Concordia Compiler](https://github.com/thiagodp/concordiala
 concordia --plugin codeceptjs-appium
 ```
 
-### Generated configuration file
+### Configuration file
 
-The plug-in generates a basic configuration file for you.
-
-#### Versions 0.x and 1.x
-
-Versions `0.x` and `1.x` generate the file `codecept.json` with the following content:
+CodeceptJS reads its configuration from `codeceptjs.json`. This plug-in adds the `"Appium"` to the property `helpers` with a very basic configuration:
 
 ```json
 {
-	"tests": "test/**/*.js",
-	"output": "output",
 	"helpers": {
-    		"Appium": {
-      			"platform": "Android",
-      			"app": "http://localhost",
-				"device": "emulator"
-    		},
-		"DbHelper": {
-			"require": "./node_modules/codeceptjs-dbhelper"
-		},
-		"CmdHelper": {
-			"require": "./node_modules/codeceptjs-cmdhelper"
-		}
-	},
-	"bootstrap": false,
-	"mocha": {
-		"reporterOptions": {
-			"codeceptjs-cli-reporter": {
-				"stdout": "-",
-				"options": {
-					"steps": true
-				}
-			},
-			"json": {
-				"stdout": "output/output.json"
-			}
+		"Appium": {
+			"platform": "Android",
+			"app": "http://localhost",
+			"device": "emulator"
 		}
 	}
 }
 ```
 
-The above file is compatible with CodeceptJS `1.2.1`, and probably any version in `1.x`.
+**Please see the [Helper Configuration](https://codecept.io/helpers/Appium.html#helper-configuration) for details on how to configure it properly.**
+
+## Supported CodeceptJS commands
+
+See [concordialang-codeceptjs-core](https://github.com/thiagodp/concordialang-codeceptjs-core#documentation).
 
 
-## Documentation
+## Dependencies
 
-### Packages installed by version 1.x
+**Version 2.x** installs the following dependencies:
 
-- No packages are installed *globally*.
-- No changes to `package.json`.
-- All the same dependencies as version `0.x`.
+| Name                   | Version |
+| ---------------------- | ------- |
+| `appium`               | 1.x     |
+| `codeceptjs`*          | 1.x     |
+| `mocha`*               | 5.x     |
+| `mocha-multi`*         | 1.x     |
+| `mochawesome`*         | 3.x     |
 
-### Packages installed by version 0.x
+  _*= Version `2.0` installs them through `concordialang-codeceptjs-core`, while version `2.1` or later installs them directly._
 
-Installed globally:
+**Version 1.x** does
+
+- not install _global_ packages
+- not add other packages to your `package.json`
+- have the same dependencies as version `0.x`, but they are installed _locally_.
+
+**Version 0.x** install globally:
 
 | package             | version  | reason                                                                  |
 | ------------------- | -------- | ----------------------------------------------------------------------- |
 | codeceptjs          | `1.2.1`  | Allow executing CodeceptJS in the CLI without NPX or via `node_modules` |
-| appium              | latest   | Needed test server                                                      |
+| appium              | `1.x`    | Needed test server                                                      |
 
-Installed in `package.json`'s `devDependencies`:
+**Version 0.x** also add theses packages as `devDependencies` to your `package.json`:
 
 | package              | version | reason                                                                              |
 | -------------------- | ------- | ----------------------------------------------------------------------------------- |
@@ -156,20 +127,6 @@ Installed in `package.json`'s `devDependencies`:
 | codeceptjs-dbhelper  | latest  | Execute Concordia commands in a database                                            |
 | database-js          | latest  | Access databases during tests, e.g., to setup them for the test                     |
 | database-js-json     | latest  | Access JSON files as databases                                                      |
-
-### Integration with CodeceptJS
-
-Documentation available in [concordialang-codeceptjs-core](https://github.com/thiagodp/concordialang-codeceptjs-core#documentation).
-
-
-## See Also
-
-- [Mobile Testing with CodeceptJS and Appium](https://codecept.io/mobile)
-
-- [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/index.html)
-
-- [concordialang-codeceptjs-webdriverio](https://github.com/thiagodp/concordialang-codeceptjs-webdriverio): plugin for CodeceptJS with WebDriverIO.
-- [Concordia](https://github.com/thiagodp/concordialang)
 
 
 ## License

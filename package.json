@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "switch:un": "npm uninstall concordialang-codeceptjs-core concordialang-plugin",
-    "switch:local": "npm run switch:un && npm i ../concordialang-plugin && i ../concordialang-codeceptjs-core",
+    "switch:local": "npm run switch:un && npm i ../concordialang-plugin && npm i ../concordialang-codeceptjs-core",
     "switch:web": "npm run switch:un && npm i concordialang-plugin concordialang-codeceptjs-core",
     "build": "rimraf dist && tsc",
     "test": "echo \"No tests to run. They are in the `core` package.\"",
@@ -61,18 +61,22 @@
       "codeceptjs",
       "appium"
     ],
-    "file": "dist/CodeceptJSAppium.js",
+    "file": "dist/index.js",
     "class": "CodeceptJSAppium",
     "serve": "npx appium"
   },
   "dependencies": {
-    "appium": "^1.17.0",
-    "concordialang-codeceptjs-core": "^1.0.1",
-    "concordialang-plugin": "^1.0.0"
+    "appium": "^1.17.1",
+    "codeceptjs": "^1.4.6",
+    "concordialang-codeceptjs-core": "^1.1.0",
+    "concordialang-plugin": "^1.0.0",
+    "mocha": "^5.2.0",
+    "mocha-multi": "^1.1.3",
+    "mochawesome": "^3.1.2"
   },
   "devDependencies": {
-    "@types/node": "^8.10.60",
+    "@types/node": "^8.10.61",
     "rimraf": "^3.0.2",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   }
 }
