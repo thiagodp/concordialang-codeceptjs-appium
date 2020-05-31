@@ -9,26 +9,29 @@ Generates and executes test scripts for **mobile** or **desktop** applications. 
 
 ## [What's New](https://github.com/thiagodp/concordialang-codeceptjs-appium/releases)
 
+## Compatibility
+
+- **Version 2.x** works with [Concordia](https://concordialang.org) `2.0.0` or above.
+- **Version 1.x** works with [Concordia](https://concordialang.org) `1.0.0` or above.
+
 ## Installation
 
-Before installing:
-- Make sure you have [Concordia](https://github.com/thiagodp/concordialang) `1.0.0` or above.
-- Go to your applications' root folder.
+*Note*: If you want to test a **web-based** mobile or desktop application, you will have to install [Java 8 or above](https://www.java.com/download/), since Appium will need [WebDriverIO](http://webdriver.io), which requires Java.
 
-*Note*: If you want to test a **web-based** mobile or desktop application, you will have to install [Java 8 or above](https://www.java.com/download/), since Appium will use [WebDriverIO](http://webdriver.io), which requires Java.
+1. Access your application's folder from the terminal/console.
+2. Install it via Concordia or NPM:
 
+	a) Installation via [Concordia](https://concordialang.org):
 
-Installation via [Concordia](https://github.com/thiagodp/concordialang):
+	```bash
+	concordia --plugin-install codeceptjs-appium
+	```
 
-```bash
-concordia --plugin-install codeceptjs-appium
-```
+	b) Installation via NPM:
 
-Installation via NPM:
-
-```bash
-npm i -D concordialang-codeceptjs-appium
-```
+	```bash
+	npm i -D concordialang-codeceptjs-appium
+	```
 
 ### You may also like to install
 
@@ -41,7 +44,7 @@ npm i -g appium-doctor
 2. [Appium Desktop](https://github.com/appium/appium-desktop/), if you are testing a **desktop** application. It has its own [installer](https://github.com/appium/appium-desktop/releases/)
 > Appium Server and Inspector in Desktop GUIs for Mac, Windows, and Linux
 
-## Environment Setup
+## Environment setup
 
 > Unfortunately, the setup process for testing mobile or desktop applications with Appium requires some manual effort.
 
