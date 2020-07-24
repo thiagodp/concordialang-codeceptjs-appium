@@ -42,7 +42,7 @@
     "all": "npm run build && npm run test",
     "preversion": "npm run build && npm run test",
     "postversion": "git push && git push --tags",
-    "postinstall": "node dist/in-ci.js || (((npm list -g npx) || (npm i --color=always -g npx))) && node dist/postinstall.js"
+    "postinstall": "node dist/in-ci.js || ((npm list -g npx) || (npm i --color=always -g npx))"
   },
   "jest": {
     "transform": {
@@ -66,17 +66,17 @@
     "serve": "npx appium"
   },
   "dependencies": {
-    "appium": "^1.17.1",
-    "codeceptjs": "^1.4.6",
-    "concordialang-codeceptjs-core": "^1.1.0",
+    "appium": "^1.18.0",
+    "codeceptjs": "^2.6.6",
+    "concordialang-codeceptjs-core": "^1.2.1",
     "concordialang-plugin": "^1.0.0",
     "mocha": "^5.2.0",
     "mocha-multi": "^1.1.3",
     "mochawesome": "^3.1.2"
   },
   "devDependencies": {
-    "@types/node": "^8.10.61",
+    "@types/node": "^8.10.62",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.7"
   }
 }
