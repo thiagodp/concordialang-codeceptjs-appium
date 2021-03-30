@@ -6,8 +6,8 @@ os:
   - windows
 
 node_js:
-  - "12"
-  - "8"
+  - "14"
+  - "10"
 
 cache:
   npm: true
