@@ -96,15 +96,17 @@ See [concordialang-codeceptjs-core](https://github.com/thiagodp/concordialang-co
 
 **Version 2.x** installs the following dependencies:
 
-| Name                   | Version |
-| ---------------------- | ------- |
-| `appium`               | 1.x     |
-| `codeceptjs`*          | 1.x     |
-| `mocha`*               | 5.x     |
-| `mocha-multi`*         | 1.x     |
-| `mochawesome`*         | 3.x     |
+| Name                   | Version 2.0 | Version 2.1 |
+| ---------------------- | ----------- |-------------|
+| `appium`               | 1.x         | 1.x         |
+| `codeceptjs`*          | 1.x         | 2.x         |
+| `mocha`*               | 5.x         | 5.x         |
+| `mocha-multi`*         | 1.x         | 1.x         |
+| `mochawesome`*         | 3.x         | 3.x         |
 
-  _*= Version `2.0` installs them through `concordialang-codeceptjs-core`, while version `2.1` or later installs them directly._
+  _* Notes:
+  - Version `2.0` installs them through `concordialang-codeceptjs-core`;
+  - Version `2.1` or later installs them directly.
 
 **Version 1.x** does
 
