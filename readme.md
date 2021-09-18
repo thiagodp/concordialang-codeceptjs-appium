@@ -1,5 +1,5 @@
-[![npm version](https://badge.fury.io/js/concordialang-codeceptjs-appium.svg)](https://badge.fury.io/js/concordialang-codeceptjs-appium)
-[![GitHub last commit](https://img.shields.io/github/last-commit/thiagodp/concordialang-codeceptjs-appium.svg)](https://github.com/thiagodp/concordialang-codeceptjs-appium/releases)
+[![npm version](https://img.shields.io/npm/v/concordialang-codeceptjs-appium.svg?style=for-the-badge&color=green)](https://badge.fury.io/js/concordialang-codeceptjs-appium)
+[![GitHub last commit](https://img.shields.io/github/last-commit/thiagodp/concordialang-codeceptjs-appium.svg?style=for-the-badge)](https://github.com/thiagodp/concordialang-codeceptjs-appium/releases)
 
 # concordialang-codeceptjs-appium
 
@@ -90,49 +90,6 @@ CodeceptJS reads its configuration from `codeceptjs.json`. This plug-in adds the
 ## Supported CodeceptJS commands
 
 See [concordialang-codeceptjs-core](https://github.com/thiagodp/concordialang-codeceptjs-core#documentation).
-
-
-## Dependencies
-
-**Version 2.x** installs the following dependencies:
-
-| Name                   | Version 2.0 | Version 2.1 |
-| ---------------------- | ----------- |-------------|
-| `appium`               | 1.x         | 1.x         |
-| `codeceptjs`*          | 1.x         | 2.x         |
-| `mocha`*               | 5.x         | 5.x         |
-| `mocha-multi`*         | 1.x         | 1.x         |
-| `mochawesome`*         | 3.x         | 3.x         |
-
-  _* Notes:
-  - Version `2.0` installs them through `concordialang-codeceptjs-core`;
-  - Version `2.1` or later installs them directly.
-
-**Version 1.x** does
-
-- not install _global_ packages
-- not add other packages to your `package.json`
-- have the same dependencies as version `0.x`, but they are installed _locally_.
-
-**Version 0.x** install globally:
-
-| package             | version  | reason                                                                  |
-| ------------------- | -------- | ----------------------------------------------------------------------- |
-| codeceptjs          | `1.2.1`  | Allow executing CodeceptJS in the CLI without NPX or via `node_modules` |
-| appium              | `1.x`    | Needed test server                                                      |
-
-**Version 0.x** also add theses packages as `devDependencies` to your `package.json`:
-
-| package              | version | reason                                                                              |
-| -------------------- | ------- | ----------------------------------------------------------------------------------- |
-| codeceptjs           | `1.2.1` | Needed framework                                                                    |
-| mocha                | `5.2.0` | Generate JSON reports read by the plug-in                                           |
-| mocha-multi          | `1.0.1` | Allow to generate multiple reports simultaneously, such as the JSON's and the CLI's |
-| codeceptjs-cmdhelper | latest  | Execute Concordia commands in the CLI                                               |
-| codeceptjs-dbhelper  | latest  | Execute Concordia commands in a database                                            |
-| database-js          | latest  | Access databases during tests, e.g., to setup them for the test                     |
-| database-js-json     | latest  | Access JSON files as databases                                                      |
-
 
 ## License
 
