@@ -41,8 +41,7 @@
     "test": "echo \"No tests to run. They are in the `core` package.\"",
     "all": "npm run build && npm run test",
     "preversion": "npm run build && npm run test",
-    "postversion": "git push && git push --tags",
-    "postinstall": "node dist/in-ci.js || ((npm list -g npx) || (npm i --color=always -g npx))"
+    "postversion": "echo \"Consider rebasing. Don't forget to push tags.\" && git log --oneline"
   },
   "jest": {
     "transform": {
@@ -66,17 +65,13 @@
     "serve": "npx appium"
   },
   "dependencies": {
-    "appium": "^1.20.2",
-    "codeceptjs": "^2.6.11",
-    "concordialang-codeceptjs-core": "^1.3.0",
-    "concordialang-plugin": "^1.1.0",
-    "mocha": "^5.2.0",
-    "mocha-multi": "^1.1.3",
-    "mochawesome": "^3.1.2"
+    "appium": "^1.21.0",
+    "concordialang-codeceptjs-core": "^1.4.1",
+    "concordialang-plugin": "^1.2.1"
   },
   "devDependencies": {
     "@types/node": "^8.10.66",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.9"
+    "typescript": "^3.9.10"
   }
 }
