@@ -1,6 +1,6 @@
 {
   "name": "concordialang-codeceptjs-appium",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Concordia Language plug-in to generate test scripts for CodeceptJS with Appium",
   "license": "AGPL-3.0",
   "readme": "readme.md",
